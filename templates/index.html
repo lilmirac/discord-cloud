@@ -1,20 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Discord Attachments</title>
+    <title>Discord Cloud</title>
+    <link rel="stylesheet" type="text/css" href="/static/style.css">
 </head>
 <body>
-    <h1>Discord Attachments</h1>
-    <ul>
+    <h1>Discord Cloud</h1>
+    <form id="upload-form" enctype="multipart/form-data" class="upload-form">
+        <input type="file" id="file-upload" name="file">
+        <button type="submit">Upload</button>
+        <div id="upload-result" style="display: none;">Successful!</div>
+    </form>
+    <ul id="attachment-list">
     {% for attachment in attachments %}
         <li>
-            Filename: {{ attachment.filename }}, 
-            TYPE: {{ attachment.filetype }}
-            Size: {{ attachment.size }} bytes, 
-            URL: <a href="{{ attachment.url }}">{{ attachment.url }}
-            </a>
+            <div>
+                <strong>{{ attachment.filename }}</strong><br>
+                {{ attachment.size }} bytes<br>
+            </div>
+            <a href="{{ attachment.url }}" class="download-button" download="{{ attachment.filename }}">Download</a>
         </li>
     {% endfor %}
     </ul>
+    <script src="/static/script.js"></script>
 </body>
 </html>
