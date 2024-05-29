@@ -1,8 +1,7 @@
 import os
 import discord
 import asyncio
-from discord.ext import tasks
-from fastapi import FastAPI, Request, UploadFile, File, WebSocket
+from fastapi import FastAPI, Request, UploadFile, File
 from fastapi.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates
 from dotenv import load_dotenv
