@@ -3,24 +3,40 @@
 <head>
     <title>Discord Cloud</title>
     <link rel="stylesheet" type="text/css" href="/static/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="icon" type="image/png" href="/static/favicon.png">
 </head>
 <body>
     <h1>Discord Cloud</h1>
     <form id="upload-form" enctype="multipart/form-data" class="upload-form">
-        <input type="file" id="file-upload" name="file">
-        <button type="submit">Upload</button>
-        <div id="upload-result" style="display: none;">Successful!</div>
+        <label for="file-upload" id="file-drag">
+            <input type="file" id="file-upload" name="file" multiple>
+        </label>
+        <button id="upload-button" type="submit">Upload</button>
     </form>
     <ul id="attachment-list">
-    {% for attachment in attachments %}
-        <li>
-            <div>
-                <strong>{{ attachment.filename }}</strong><br>
-                {{ attachment.size }} bytes<br>
-            </div>
-            <a href="{{ attachment.url }}" class="download-button" download="{{ attachment.filename }}">Download</a>
-        </li>
-    {% endfor %}
+        {% for attachment in attachments %}
+            <li>
+                <div>
+                    <strong>{{ attachment.filename }}</strong><br>
+                    {% if attachment.size >= 1048576 %}
+                        {% set size_in_mb = attachment.size / 1048576 %}
+                        {{ "%0.1f"|format(size_in_mb) }} MB<br>
+                    {% elif attachment.size >= 1024 %}
+                        {% set size_in_kb = attachment.size / 1024 %}
+                        {{ size_in_kb|round }} KB<br>
+                    {% else %}
+                        {{ attachment.size }} Bytes<br>
+                    {% endif %}
+                </div>
+                <a href="{{ attachment.url }}" class="download-button" download="{{ attachment.filename }}">
+                    <i class="fas fa-download"></i>
+                </a>
+                <button class="delete-button" data-message-id="{{ attachment.message_id }}">
+                    <i class="fas fa-trash-alt"></i>
+                </button>                
+            </li>
+        {% endfor %}
     </ul>
     <script src="/static/script.js"></script>
 </body>
