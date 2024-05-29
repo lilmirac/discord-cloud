@@ -47,12 +47,11 @@ async def fetch_channel_attachments():
             attachments.append({
                 "message_id": message.id,
                 "filename": attachment.filename,
-                "size": attachment.size,  # Store size in bytes
+                "size": attachment.size,
                 "url": attachment.url,
                 "filetype": attachment.filename.split(".")[-1]
             })
     return attachments
-
 
 @app.post("/upload")
 async def upload_file(file: UploadFile = File(...)):
@@ -66,6 +65,18 @@ async def upload_file(file: UploadFile = File(...)):
     os.remove(file_location)
     return {"filename": file.filename}
 
+@app.delete("/delete/{message_id}")
+async def delete_file(message_id: int):
+    channel = client.get_channel(CHANNEL_ID)
+    if not channel:
+        return {"error": "Channel not found"}
+    try:
+        message = await channel.fetch_message(message_id)
+        await message.delete()
+        return {"message": "File deleted successfully"}
+    except discord.NotFound:
+        return {"error": "Message not found"}
+    
 async def run_discord_bot():
     await client.start(BOT_TOKEN)
 
