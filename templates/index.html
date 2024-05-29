@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Discord Attachments</title>
+</head>
+<body>
+    <h1>Discord Attachments</h1>
+    <ul>
+    {% for attachment in attachments %}
+        <li>
+            Filename: {{ attachment.filename }}, 
+            TYPE: {{ attachment.filetype }}
+            Size: {{ attachment.size }} bytes, 
+            URL: <a href="{{ attachment.url }}">{{ attachment.url }}
+            </a>
+        </li>
+    {% endfor %}
+    </ul>
+</body>
+</html>
