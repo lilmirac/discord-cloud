@@ -6,6 +6,7 @@ from fastapi.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates
 from dotenv import load_dotenv
 from fastapi.staticfiles import StaticFiles
+import io
 
 load_dotenv()
 BOT_TOKEN = os.getenv("BOT_TOKEN")
@@ -58,11 +59,9 @@ async def upload_file(file: UploadFile = File(...)):
     channel = client.get_channel(CHANNEL_ID)
     if not channel:
         return {"error": "Channel not found"}
-    file_location = f"/tmp/{file.filename}"
-    with open(file_location, "wb") as buffer:
-        buffer.write(file.file.read())
-    await channel.send(file=discord.File(file_location))
-    os.remove(file_location)
+    file_data = io.BytesIO(await file.read())
+    await channel.send(file=discord.File(file_data, filename=file.filename))
+
     return {"filename": file.filename}
 
 @app.delete("/delete/{message_id}")
