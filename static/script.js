@@ -64,7 +64,7 @@ async function submitForm() {
 
 document.querySelectorAll('.delete-button').forEach(button => {
     button.addEventListener('click', async function(event) {
-        const fileName = this.getAttribute('data-file-name');
+        const fileName = this.getAttribute('data-file-name') || 'this file';
         const confirmDelete = confirm(`Are you sure you want to delete ${fileName}?`);
         if (confirmDelete) {
             const messageId = this.getAttribute('data-message-id');
