@@ -32,7 +32,7 @@
                 <a href="{{ attachment.url }}" class="download-button" download="{{ attachment.filename }}">
                     <i class="fas fa-download"></i>
                 </a>
-                <button class="delete-button" data-message-id="{{ attachment.message_id }}">
+                <button class="delete-button" data-message-id="{{ attachment.message_id }}" data-file-name="{{ attachment.filename }}">
                     <i class="fas fa-trash-alt"></i>
                 </button>                
             </li>
