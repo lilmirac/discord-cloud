@@ -1,8 +1,9 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    background-color: #2c2f33;
     margin: 0;
     padding: 0;
+    color: #dddddd;
 }
 
 h1 {
@@ -20,11 +21,11 @@ ul {
 }
 
 li {
-    background-color: white;
+    background-color: #424549;
     margin: 10px auto;
     padding: 10px;
     border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -73,11 +74,11 @@ a:hover {
 }
 
 .upload-form {
-    background-color: white;
+    background-color: #424549;
     margin: 20px auto;
     padding: 10px;
     border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     display: flex;
     align-items: center;
     justify-content: center;
