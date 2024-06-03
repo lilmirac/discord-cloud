@@ -1,9 +1,8 @@
 # discord-cloud
 
+Simple web application to use discord channels as free cloud storage.
+
 <img alt="Screenshot1" src="static/Screenshot1.png" />
-
-Simple web application to use discord channels as free cloud storage using Python.
-
 
 ## Built With
 
@@ -23,6 +22,7 @@ Simple web application to use discord channels as free cloud storage using Pytho
    cd discord-cloud
    ```
 3. Enter variables in `.env` file
+
 `BOT_TOKEN="Discord Bot Token"`
 
 `SERVER_ID="ID of server"`
@@ -30,18 +30,19 @@ Simple web application to use discord channels as free cloud storage using Pytho
 `CHANNEL_ID="ID of channel"`
 
 4. Set up project manually or using docker
+
 Local Installation
-```sh
+    ```sh
    pip install -r requirements.txt
    ```
-```sh
+    ```sh
    python main.py
    ```
 Docker Installation
-```sh
+    ```sh
    docker build -t discord-cloud .
    ```
-```sh
+    ```sh
    docker run discord-cloud
    ```
 
