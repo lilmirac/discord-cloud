@@ -31,18 +31,12 @@ Simple web application to use discord channels as free cloud storage.
 
 4. Set up project manually or using docker
 
-Local Installation
     ```sh
    pip install -r requirements.txt
-   ```
-    ```sh
    python main.py
    ```
-Docker Installation
     ```sh
    docker build -t discord-cloud .
-   ```
-    ```sh
    docker run discord-cloud
    ```
 
