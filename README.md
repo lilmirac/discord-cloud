@@ -2,7 +2,7 @@
 
 Simple web application to use discord channels as free cloud storage.
 
-<img alt="Screenshot1" src="static/Screenshot1.png" />
+<img alt="Screenshot1" width=380 height=340 src="static/Screenshot1.png" />
 
 ## Built With
 
@@ -42,7 +42,7 @@ Simple web application to use discord channels as free cloud storage.
 
 ## Usage
 * After installation steps you can navigate to `localhost:8000` in your web browser
-* You can manage, download, delete existing files, upload new (Up to 25MB for now) files
+* You can manage, download, delete existing files, upload new (Up to 25MB / file for now) files
 * You can use VPN services for using this service on your other devices
 
 ## Contact
