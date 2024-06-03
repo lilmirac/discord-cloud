@@ -16,11 +16,11 @@ async def fetch_channel_attachments():
     attachments = []
     server = client.get_guild(SERVER_ID)
     if not server:
-        print(f'Could not find server with ID {SERVER_ID}')
+        print('Could not find server')
         return attachments
     channel = server.get_channel(CHANNEL_ID)
     if not channel:
-        print(f'Could not find channel with ID {CHANNEL_ID}')
+        print('Could not find channel')
         return attachments
     async for message in channel.history(limit=None):
         for attachment in message.attachments:
