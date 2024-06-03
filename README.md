@@ -2,7 +2,7 @@
 
 Simple web application to use discord channels as free cloud storage.
 
-<img alt="Screenshot1" width=380 height=340 src="static/Screenshot1.png" />
+<img alt="Screenshot1" width=425 height=365 src="static/Screenshot1.png" />
 
 ## Built With
 
